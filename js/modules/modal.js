@@ -20,6 +20,7 @@ function modal(trigger, modalSelector, modalTimerId) {
 
     modalTrigger.forEach(item => {
         item.addEventListener('click', () => openModal(modalSelector, modalTimerId));
+        
     });
 
     modal.addEventListener('click', (e) => {

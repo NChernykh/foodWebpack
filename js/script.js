@@ -7,6 +7,7 @@ import calc from './modules/calc';
 import cards from './modules/cards';
 import forms from './modules/forms';
 import modal from './modules/modal';
+import animate from './modules/animation';
 import  slider from './modules/slider';
 import {openModal} from './modules/modal';
 
@@ -19,6 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
   timer('.timer', '2023-01-1');
   cards();
   calc();
+  animate();
   forms('form', modalTimerId);
   slider({
     container: '.offer__slider',

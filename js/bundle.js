@@ -1,6 +1,47 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./js/modules/animation.js":
+/*!*********************************!*\
+  !*** ./js/modules/animation.js ***!
+  \*********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function animate() {
+  const logo = document.querySelector('.header__logo');
+  let logoAnimation;
+  logoAnimation = logo.animate([{
+    transform: 'translateY(0)',
+    filter: 'opacity(100%)'
+  }, {
+    transform: 'translateY(5px)',
+    filter: 'opacity(40%)'
+  }, {
+    transform: 'translateY(-5px)',
+    filter: 'opacity(70%)'
+  }, {
+    transform: 'translateY(0)',
+    filter: 'opacity(100%)'
+  }], {
+    duration: 2000,
+    iterations: Infinity
+  });
+  logo.addEventListener('click', () => {
+    if (logoAnimation.playState === 'running') {
+      logoAnimation.pause();
+    } else if (logoAnimation.playState === 'paused') {
+      logoAnimation.play();
+    } else {
+      logoAnimation.pause();
+    }
+  });
+}
+/* harmony default export */ __webpack_exports__["default"] = (animate);
+
+/***/ }),
+
 /***/ "./js/modules/calc.js":
 /*!****************************!*\
   !*** ./js/modules/calc.js ***!
@@ -1893,8 +1934,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_cards__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/cards */ "./js/modules/cards.js");
 /* harmony import */ var _modules_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/forms */ "./js/modules/forms.js");
 /* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/modal */ "./js/modules/modal.js");
-/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/slider */ "./js/modules/slider.js");
+/* harmony import */ var _modules_animation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/animation */ "./js/modules/animation.js");
+/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/slider */ "./js/modules/slider.js");
 (__webpack_require__(/*! es6-promise */ "./node_modules/es6-promise/dist/es6-promise.js").polyfill)();
+
 
 
 
@@ -1913,8 +1956,9 @@ window.addEventListener('DOMContentLoaded', () => {
   (0,_modules_timer__WEBPACK_IMPORTED_MODULE_2__["default"])('.timer', '2023-01-1');
   (0,_modules_cards__WEBPACK_IMPORTED_MODULE_4__["default"])();
   (0,_modules_calc__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  (0,_modules_animation__WEBPACK_IMPORTED_MODULE_7__["default"])();
   (0,_modules_forms__WEBPACK_IMPORTED_MODULE_5__["default"])('form', modalTimerId);
-  (0,_modules_slider__WEBPACK_IMPORTED_MODULE_7__["default"])({
+  (0,_modules_slider__WEBPACK_IMPORTED_MODULE_8__["default"])({
     container: '.offer__slider',
     slide: '.offer__slide',
     nextArrow: '.offer__slider-next',
